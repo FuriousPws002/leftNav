@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="static/nav-left/jquery-1.12.2.min.js"></script>
+    <script src="static/nav-left/nav-left.js"></script>
+    <link rel="stylesheet" href="static/nav-left/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/nav-left/nav-left.css">
+
+    <script type="text/javascript">
+        $(function () {
+        	//创建一级菜单
+        	$(".left-nav").createLeftNavFir(['一级菜单1','一级菜单2','一级菜单3','一级菜单4','一级菜单5']);
+        	//创建二级菜单
+            $(".left-nav").createLeftNavSec("一级菜单1",['二级菜单1','二级菜单2','二级菜单3']);
+            $(".left-nav").createLeftNavSec("一级菜单3",['二级菜单1','二级菜单2','二级菜单3']);
+            $(".left-nav").createLeftNavSec("一级菜单4",['二级菜单1','二级菜单2','二级菜单3']);
+            //创建三级菜单
+            $(".left-nav").createLeftNavThr("一级菜单1","二级菜单1",['三级菜单1','三级菜单2']);
+            $(".left-nav").createLeftNavThr("一级菜单3","二级菜单2",['三级菜单1','三级菜单2']);
+//            $(".left-nav").initFirSec();//只有二级菜单时用改方法初始化
+            //初始化菜单栏(点击事件)，存在三级菜单时用改方法初始化
+            $(".left-nav").initLeftNav();
+            
+            //说明：每个子菜单都对应一个唯一的id，(形如leftNav000，则表示第一个一级菜单下的第一个二级菜单下的第一个三级菜单的id)
+            
+        })
+    </script>
+</head>
+<body>
+    <div class="container">
+    	<h3>jQuery实现侧边导航栏三级菜单下拉</h3>
+        <div class="left-nav"></div>
+    </div>
+</body>
+</html>
